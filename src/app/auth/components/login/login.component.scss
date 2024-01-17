@@ -1,0 +1,19 @@
+.login-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.login-box {
+  background-color: cadetblue;
+  padding: 20px;
+}
+
+.login-fields {
+  display: grid;
+  margin: 10px;
+
+  mat-form-field {
+    margin: 5px;
+  }
+}

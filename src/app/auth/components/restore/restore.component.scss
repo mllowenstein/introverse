@@ -1,0 +1,19 @@
+.restore-container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.restore-box {
+  background-color: cadetblue;
+  padding: 20px;
+}
+
+.restore-fields {
+  display: grid;
+  margin: 10px;
+
+  mat-form-field {
+    margin: 5px;
+  }
+}

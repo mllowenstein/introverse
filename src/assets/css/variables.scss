@@ -1,0 +1,66 @@
+@import './palette';
+@import './typography';
+
+$mobile-header-height: 80px;
+
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin media-up-to($media) {
+  @if $media == lg {
+    @media only screen and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $media == md {
+    @media only screen and (max-width: 991px) {
+      @content;
+    }
+  } @else if $media == sm {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $media == xs {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  } @else if $media == xxs {
+    @media only screen and (max-width: 340px) {
+      @content;
+    }
+  } @else if $media == xl {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if $media == xxl {
+    @media only screen and (min-width: 1300px) {
+      @content;
+    }
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid $color-gray-3;
+}
+
+.border-top {
+  border-top: 1px solid $color-gray-3;
+}
+
+.border-right {
+  border-right: 1px solid $color-gray-3;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.placeholder {
+  @extend .base-font;
+  color: $color-gray-4;
+  font-family: $base-font-family;
+  font-size: 14px;
+  line-height: 19px;
+}

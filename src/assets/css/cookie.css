@@ -1,0 +1,13 @@
+.disablePage {
+  width: 100% !important;
+  height: 100vh !important;
+  background-color: black !important;
+  z-index: 9998 !important;
+  opacity: 0.5;
+  filter: alpha(opacity = 50); /* required for opacity to work in IE */
+}
+
+.cc-revoke,
+.cc-window {
+  z-index: 100006 !important;
+}

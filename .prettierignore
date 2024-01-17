@@ -1,0 +1,9 @@
+package.json
+package-lock.json
+.eslintrc.json
+tsconfig.json
+dist
+/.angular/cache
+eslint
+src/profile.html
+src/email.html

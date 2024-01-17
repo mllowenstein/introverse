@@ -43,7 +43,7 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "src/polyfills.ts"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -79,18 +79,35 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "local": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "ssl": true,
+            "disableHostCheck": true,
+            "sslCert": "./ssl/localhost.crt",
+            "sslKey": "./ssl/localhost.decrypted.key"
+          },
           "configurations": {
             "production": {
               "browserTarget": "introverse:build:production"
             },
             "development": {
               "browserTarget": "introverse:build:development"
+            },
+            "local": {
+              "browserTarget": "introverse:build:local"
             }
           },
           "defaultConfiguration": "development"

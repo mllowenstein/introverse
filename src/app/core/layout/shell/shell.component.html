@@ -1,0 +1,20 @@
+<div>
+  <remoteink-header [sidenav]="sidenav"></remoteink-header>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border">
+      <nav>
+        <mat-list>
+          <mat-divider></mat-divider>
+          <a mat-list-item [routerLink]="'/home'" routerLinkActive="active" (click)="closeNav()">
+            <span translate>Home</span>
+          </a>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <remoteink-footer></remoteink-footer>
+</div>

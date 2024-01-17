@@ -1,0 +1,81 @@
+<div class="card">
+  <h4 class="card-header">Restore Account</h4>
+  <div class="card-body">
+    <form (ngSubmit)="restore()" [formGroup]="restoreForm" novalidate>
+      <mat-form-field [hideRequiredMarker]="true">
+        <input
+          matInput
+          type="text"
+          autocomplete="username"
+          formControlName="username"
+          [placeholder]="'Username' | translate"
+          required />
+        <mat-error *ngIf="restoreForm.controls['username'].invalid && restoreForm.controls['username'].touched">
+          <span translate>Username is required</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field [hideRequiredMarker]="true">
+        <input
+          matInput
+          type="email"
+          autocomplete="email"
+          formControlName="email"
+          [placeholder]="'Email Address' | translate"
+          required />
+        <mat-error *ngIf="restoreForm.controls['email'].invalid && restoreForm.controls['email'].touched">
+          <span translate>Email is required</span>
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <button [disabled]="isLoading" type="submit" class="btn btn-primary">
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-1"></span>
+          Restore Account
+        </button>
+        <a routerLink="../login" class="btn btn-link">Login</a>
+        <a routerLink="../register" class="btn btn-link">Register</a>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- <div class="login-container">
+  <mat-card class="login-box">
+    <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+      <div class="login-error" [hidden]="!error || isLoading" translate>Username or password incorrect.</div>
+      <br />
+      <div class="login-fields">
+        <mat-form-field [hideRequiredMarker]="true">
+          <input
+            type="text"
+            matInput
+            formControlName="username"
+            autocomplete="username"
+            [placeholder]="'Username' | translate"
+            required />
+          <mat-error *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched">
+            <span translate>Username is required</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field [hideRequiredMarker]="true">
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            autocomplete="current-password"
+            [placeholder]="'Password' | translate"
+            required />
+          <mat-error *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+            <span translate>Password is required</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-checkbox formControlName="remember" translate>Remember me</mat-checkbox>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button type="submit" [disabled]="loginForm.invalid || isLoading">
+          <remoteink-loader class="inline-loader" [isLoading]="isLoading"></remoteink-loader>
+          <span translate>Login</span>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div> -->

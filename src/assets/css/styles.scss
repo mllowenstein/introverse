@@ -1,0 +1,829 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import './variables';
+@import '~ng-pick-datetime/assets/style/picker.min.css';
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: $pale-grey;
+}
+
+app-dialog {
+  z-index: 1000;
+}
+
+app-form {
+  padding: 10px;
+}
+
+app-qa {
+  display: contents;
+}
+
+app-input {
+  display: inline-grid;
+  width: 94%;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.mat-radio-button {
+  &.mat-accent .mat-radio-inner-circle {
+    background-color: $jade;
+  }
+
+  .mat-radio-label {
+    align-items: flex-start;
+    font-family: $base-font-family;
+  }
+
+  .mat-radio-outer-circle {
+    border: 1px solid $dark;
+  }
+}
+
+.mat-radio-disabled {
+  .mat-radio-outer-circle {
+    background-color: $silver;
+    border: 1px solid $pale-grey;
+  }
+}
+
+.mat-radio-checked .mat-radio-inner-circle {
+  transform: scale(1) !important;
+}
+
+.mat-form-field,
+.mat-option,
+.mat-select,
+.mat-expansion-panel-content {
+  font-family: $base-font-family !important;
+  line-height: 20px;
+}
+
+table th,
+table td {
+  font-family: $base-font-family !important;
+}
+
+.manage-table-section {
+  .mat-form-field-underline {
+    background-color: $silver-fish;
+  }
+}
+
+.mat-expansion-panel-body {
+  overflow: visible !important;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $base-font-family !important;
+  line-height: 20px;
+}
+
+.button {
+  width: 161px;
+  height: 35px;
+  font-size: 16px;
+  color: $water-blue;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 $dark-50;
+  border: solid 1px $water-blue;
+  display: block;
+  outline: none;
+  text-align: center;
+
+  @include media-up-to(sm) {
+    width: 86px;
+    height: 48px !important;
+    line-height: 42px !important;
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 2px 3px 0 $dark-50;
+    outline: none;
+  }
+
+  &:hover {
+    font-weight: 600;
+  }
+
+  &.button-blue {
+    font-weight: 300;
+    background-image: radial-gradient(circle at 50% 50%, $water-blue, $color-blue-2);
+    color: white;
+    border: 1px solid $water-blue;
+
+    &:active,
+    &:focus {
+      background-image: radial-gradient(circle at 50% 50%, $color-blue-2, $water-blue);
+    }
+
+    &:hover {
+      font-weight: normal;
+      background-image: radial-gradient(circle at 50% 50%, $color-blue-2, $water-blue);
+      cursor: pointer;
+    }
+  }
+
+  &.button-disabled {
+    font-weight: bold;
+    color: white;
+    background-color: $silver;
+    border: 0;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.ms-dropdown {
+  .control-label {
+    border-bottom: 1px solid $color-gray-2;
+    color: $color-gray-2;
+    font-size: 15px;
+    padding-bottom: 3px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+
+    span.icon-chevron-down,
+    span.icon-chevron-up {
+      position: absolute;
+      right: 15px;
+      top: 4px;
+      color: $dark;
+      font-size: 17px;
+    }
+
+    span.icon-chevron-up {
+      display: none;
+    }
+
+    span.icon-chevron-down {
+      display: block;
+    }
+  }
+  &.expanded {
+    .control-options {
+      display: block;
+    }
+
+    .control-label {
+      span.icon-chevron-up {
+        display: block;
+      }
+
+      span.icon-chevron-down {
+        display: none;
+      }
+    }
+  }
+  .control-options {
+    box-shadow: 0 2px 4px 0 $dark-50;
+    display: none;
+
+    @include media-up-to(sm) {
+      background: none;
+      box-shadow: 0 2px 4px 0 $dark-50;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        position: relative;
+        height: 40px;
+        padding: 8px 0 0 8px;
+        cursor: pointer;
+        user-select: none;
+
+        &.active {
+          background: $pale-grey;
+
+          span.icon-check {
+            display: inline-block;
+          }
+        }
+
+        span.icon-check {
+          display: none;
+          color: $green;
+          position: absolute;
+          right: 15px;
+          top: 12px;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+.ms-page {
+  background-color: white;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-card,
+.profile-card,
+.membership-card,
+.events-card,
+.checkout-card,
+.shipping-card,
+.organization-selection-card,
+.purchase-tabled-events-card,
+.make-donation,
+.competition-apply,
+.workflow-container {
+  @extend .base-font;
+  color: $dark;
+  padding: 30px 0 120px;
+  overflow: auto;
+
+  @include media-up-to(sm) {
+    margin: 50px 0;
+    padding: 0 0 75px;
+  }
+
+  &.solo {
+    margin: 0;
+  }
+
+  .card-container {
+    background-color: white;
+    box-shadow: 0 1px 2px 0 $dark-20;
+    font-family: $base-font-family;
+
+    @include media-up-to(sm) {
+      box-shadow: none;
+    }
+
+    header {
+      border-bottom: 1px solid $color-gray-3;
+      font-size: 14px;
+      padding: 20px 20px 10px;
+
+      h3 {
+        color: $dark;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 3px;
+      }
+
+      span {
+        color: $dark;
+        font-weight: 300;
+      }
+
+      .edit {
+        color: $water-blue;
+        font-weight: 600;
+        line-height: 20px;
+        float: right;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.checkout-card {
+  .card-container {
+    header {
+      padding-bottom: 7px;
+
+      h3 {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+// MATERIAL UI OVERRIDES
+.mat-card,
+.mat-list .mat-list-item,
+.mat-button,
+.mat-raised-button,
+.mat-icon-button,
+.mat-fab,
+.mat-mini-fab {
+  @extend .base-font;
+}
+
+.mat-card {
+  padding: 0 !important;
+
+  .mat-card-header {
+    border-bottom: 1px solid $color-gray-3;
+    padding: 20px 20px 10px;
+
+    h3 {
+      color: $dark;
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+
+    span {
+      font-weight: 300;
+    }
+  }
+  .mat-card-content {
+    padding: 0;
+  }
+}
+
+.mat-select-panel {
+  @include media-up-to(sm) {
+    margin-left: -8px;
+  }
+}
+
+.cdk-overlay-backdrop {
+  &.cdk-overlay-backdrop-showing {
+    opacity: 1;
+  }
+  &.dimmed {
+    background: $dark-65;
+  }
+}
+
+.mat-form-field {
+  .mat-select-arrow {
+    border: 0 none;
+    position: relative;
+
+    &:after {
+      /* chevron down */
+      content: '\e93a';
+      @extend .linear-icon-font;
+      position: absolute;
+      top: -6px;
+      left: -13px;
+    }
+  }
+}
+
+mat-pseudo-checkbox.mat-pseudo-checkbox {
+  border: 0 none;
+  float: right;
+  position: relative;
+  top: 0;
+}
+
+mat-pseudo-checkbox.mat-pseudo-checkbox-checked {
+  background: none !important;
+
+  &:after {
+    /* check */
+    content: '\e934';
+    border: 0 none;
+    color: $green;
+    transform: none;
+    @extend .linear-icon-font;
+    font-weight: bold;
+  }
+}
+
+.msSnackbar {
+  background-color: $color-gray-2;
+}
+
+.msChangeSessionsMessageSnackbar {
+  background-color: #565759;
+  font-family: $base-font-family;
+  font-size: 14px;
+  padding: 24px !important;
+  margin-bottom: 40px !important;
+}
+
+mat-expansion-panel {
+  .mat-expansion-indicator {
+    @extend .linear-icon-font;
+
+    &:after {
+      /* chevron down */
+      content: '\e93a';
+      border: 0 none;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(0deg);
+      vertical-align: inherit;
+    }
+  }
+}
+
+.container-fluid {
+  > .row {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+.asterisk {
+  color: $dusty-red;
+}
+
+.mat-placeholder-required {
+  color: $dusty-red;
+}
+
+.corner-text-wrapper {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  clip: rect(0px, 70px, 35px, 0px);
+  height: 70px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 70px;
+
+  &.out-of-stock-store {
+    margin-top: 13px;
+    margin-right: 13px;
+
+    @include media-up-to(sm) {
+      margin-top: 0;
+      margin-right: 0;
+    }
+  }
+  .corner-text {
+    color: white;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    left: 10px;
+    top: 10px;
+    background-color: $dusty-red;
+    display: block;
+    height: 50px;
+    position: absolute;
+    width: 50px;
+    z-index: 2;
+
+    span {
+      position: relative;
+      top: 3px;
+      left: 22px;
+      display: block;
+      text-align: right;
+      font-size: 10px;
+      font-weight: 600;
+      width: 21px;
+      height: 20px;
+      line-height: 1.1;
+
+      &.out-of-stock {
+        font-size: 8px;
+        width: 25px;
+      }
+    }
+  }
+  .waitlist-text {
+    background-color: rgb(92, 197, 103) !important;
+  }
+}
+
+.alert-indicator {
+  font-size: 9px;
+  line-height: 10px;
+  background-color: $dusty-red;
+  border: 0.5px solid white;
+  color: white;
+  display: block;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -10%;
+  margin-left: 55%;
+  position: absolute;
+  z-index: 1;
+}
+
+.mat-sort-header-arrow {
+  opacity: 1 !important;
+  color: $heavy-grey !important;
+}
+
+.mat-paginator {
+  .mat-select-value {
+    text-align: center;
+  }
+
+  .mat-paginator-navigation-next:focus,
+  .mat-paginator-navigation-previous:focus {
+    outline: none !important;
+  }
+
+  @include media-up-to(sm) {
+    .mat-paginator-container {
+      position: relative;
+      min-height: 100px;
+
+      .mat-paginator-page-size {
+        position: absolute;
+        top: 0;
+      }
+
+      .mat-paginator-range-actions {
+        position: absolute;
+        top: 50px;
+      }
+    }
+  }
+}
+
+#purchase-membership-modal {
+  .action-buttons {
+    margin: 10px 0;
+
+    .purchase-text {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .membership-text {
+      font-size: 11px;
+    }
+
+    .home-button {
+      height: 45px;
+      text-align: center;
+      color: $water-blue;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+      margin: 0 auto;
+    }
+
+    .left-membership-button {
+      height: 45px;
+      margin-bottom: 30px;
+      float: left;
+      cursor: pointer;
+      &.button-blue {
+        margin-left: 0;
+      }
+    }
+
+    .left-membership-button:hover,
+    .right-membership-button:hover {
+      font-weight: 100;
+    }
+
+    .right-membership-button {
+      height: 45px;
+      margin-bottom: 30px;
+      float: right;
+      cursor: pointer;
+      &.button-blue {
+        margin-right: 0;
+      }
+    }
+
+    .button-container {
+      margin: 0;
+
+      .right-membership-button,
+      .left-membership-button,
+      .home-button {
+        float: left;
+      }
+    }
+  }
+}
+
+// TODO: css is being duplicated from package selection scss| package selection scss for quantity indicator should be made reusable with this scss
+.qty-indicator {
+  width: 160px;
+  min-width: 70px;
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+  text-align: left;
+  span {
+    &.incr-val {
+      width: 20px;
+    }
+  }
+}
+
+span {
+  display: inline-block;
+
+  &.incr-btn {
+    width: 19px;
+    height: 19px;
+    border: 1px solid $water-blue;
+    color: $water-blue;
+    border-radius: 19px;
+    text-align: center;
+    font-size: 1.3em;
+    cursor: pointer;
+
+    &.minus-group {
+      line-height: 95%;
+    }
+    &.minus {
+      line-height: 85%;
+    }
+
+    &.plus {
+      position: relative;
+      top: 1px;
+      line-height: 95%;
+    }
+    &.plus-group {
+      position: relative;
+      top: 1px;
+      line-height: 100%;
+    }
+
+    .disabled & {
+      opacity: 0.5;
+      border: 1px solid gray;
+      color: gray;
+      cursor: default;
+    }
+  }
+
+  &.incr-val {
+    height: 19px;
+    width: 35px;
+    font-size: 14px;
+    text-align: center;
+    color: $dark;
+    cursor: default;
+
+    .disabled & {
+      opacity: 0.5;
+      color: gray;
+    }
+  }
+}
+
+.ppl-label {
+  font-family: $base-font-family;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(11, 132, 201, 0.75);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 50;
+
+  .icon-chevron-up {
+    color: $white;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    font-weight: bolder;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+}
+
+.scroll-to-top-button:hover {
+  font-weight: normal;
+  background-image: radial-gradient(circle at 50% 50%, $color-blue-2, $water-blue);
+  cursor: pointer;
+}
+
+.editor-area {
+  padding: 0;
+  border: solid 1px $silver;
+  box-shadow: 0 1px 9px 0.5px #cccccc;
+
+  ::ng-deep .ck-editor__editable_inline {
+    height: 150px;
+  }
+
+  ::ng-deep .ck-toolbar {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid $silver;
+  }
+}
+
+.file-size-info {
+  color: $color-gray-2;
+  font-size: 14px;
+  font-style: italic;
+  padding-bottom: 25px;
+}
+
+.error-message {
+  color: $dusty-red;
+  font-weight: 600;
+  font-size: 14px;
+  padding-bottom: 15px;
+}
+
+// toggle text is a nested element at various places
+// !important is being used to override the parent styles for the nested elements
+p.toggle-text {
+  font-size: 14px !important;
+  font-weight: normal !important;
+}
+
+.app-empty-state {
+  text-align: center;
+  line-height: 200px;
+  vertical-align: middle;
+}
+
+.overflow-text {
+  text-overflow: ellipsis;
+}
+
+// Can't specify in component stylesheet due to ViewEncapsulation
+profile-image-upload .drop-zone {
+  height: 250px;
+  border: 2px dotted #0782d0;
+  border-radius: 30px;
+}
+
+.valid {
+  color: $mid-green;
+}
+
+.invalid {
+  color: $color-red-1;
+}
+
+mat-expansion-panel.validate-steps {
+  & > mat-expansion-panel-header.step-valid {
+    border-left: solid 10px $mid-green;
+  }
+
+  & > mat-expansion-panel-header.step-invalid {
+    border-left: solid 10px $color-red-1;
+  }
+
+  & > mat-expansion-panel-header:not(.step-invalid, .step-valid) {
+    margin-left: 10px;
+  }
+
+  & > mat-expansion-panel-header.mat-expanded.step-invalid,
+  & > mat-expansion-panel-header.mat-expanded.step-valid {
+    border-bottom-left-radius: 0;
+  }
+}
+
+mat-expansion-panel-header.large-header {
+  min-height: 64px;
+}
+
+.primary-button {
+  color: $water-blue;
+}
+
+th {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: $dark !important;
+}
