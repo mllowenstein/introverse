@@ -5,13 +5,18 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   {
     path: 'home',
-    data: { title: 'Home' },
-    component: HomeComponent,
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'home',
+    children: [
+      {
+        path: '',
+        data: { title: 'Home' },
+        component: HomeComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: '',
+      },
+    ],
   },
 ];
 

@@ -6,9 +6,12 @@ import { ExperienceComponent, InterestsComponent, SkillsComponent, ResumeCompone
 const routes: Routes = [
   {
     path: 'profile',
-    data: { title: 'Profile' },
-    component: ProfileComponent,
     children: [
+      {
+        path: '',
+        data: { title: 'Profile' },
+        component: ProfileComponent,
+      },
       {
         path: '#experience',
         data: { state: 'experience' },
@@ -29,12 +32,12 @@ const routes: Routes = [
         data: { state: 'resume' },
         component: ResumeComponent,
       },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'profile',
+      },
     ]
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'profile',
   },
 ];
 

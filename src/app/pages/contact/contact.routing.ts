@@ -5,13 +5,18 @@ import { ContactComponent } from './contact.component';
 const routes: Routes = [
   {
     path: 'contact',
-    data: { title: 'Contact' },
-    component: ContactComponent,
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'contact',
+    children: [
+      {
+        path: '',
+        data: { title: 'Contact' },
+        component: ContactComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'contact',
+      },
+    ],
   },
 ];
 

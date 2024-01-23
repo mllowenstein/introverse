@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <mat-toolbar class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="https://github.com/ngx-rocket" translate>{{ APP_NAME }}</a>
       <button
@@ -13,25 +13,21 @@
       </button>
       <div id="navbar-menu" class="collapse navbar-collapse float-xs-none">
         <div class="navbar-nav me-auto mb-2 mb-lg-0">
-          <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
+          <a class="nav-item nav-link text-uppercase" [routerLink]="'/home'" routerLinkActive="active">
             <i class="fas fa-home"></i>
             <span translate>Home</span>
           </a>
-          <a class="nav-item nav-link text-uppercase" routerLink="/profile" routerLinkActive="active">
+          <a class="nav-item nav-link text-uppercase" [routerLink]="'/profile'" routerLinkActive="active">
             <i class="fas fa-question-circle"></i>
             <span translate>Profile</span>
           </a>
-          <a class="nav-item nav-link text-uppercase" routerLink="/explore" routerLinkActive="active">
+          <a class="nav-item nav-link text-uppercase" [routerLink]="'/explore'" routerLinkActive="active">
             <i class="fas fa-question-circle"></i>
             <span translate>Explore</span>
           </a>
-          <a class="nav-item nav-link text-uppercase" routerLink="/profile" routerLinkActive="active">
+          <a class="nav-item nav-link text-uppercase" [routerLink]="'/contact'" routerLinkActive="active">
             <i class="fas fa-question-circle"></i>
-            <span translate>Explore</span>
-          </a>
-          <a class="nav-item nav-link text-uppercase" routerLink="/profile" routerLinkActive="active">
-            <i class="fas fa-question-circle"></i>
-            <span translate>Profile</span>
+            <span translate>Contact</span>
           </a>
         </div>
         <div class="navbar-nav ml-auto">
@@ -50,5 +46,5 @@
         </div>
       </div>
     </div>
-  </nav>
+  </mat-toolbar>
 </header>

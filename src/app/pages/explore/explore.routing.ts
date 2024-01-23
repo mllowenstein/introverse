@@ -5,13 +5,18 @@ import { ExploreComponent } from './explore.component';
 const routes: Routes = [
   {
     path: 'explore',
-    data: { title: 'Explore' },
-    component: ExploreComponent,
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'explore',
+    children: [
+      {
+        path: '',
+        data: { title: 'Explore' },
+        component: ExploreComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'explore',
+      },
+    ],
   },
 ];
 
